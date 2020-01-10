@@ -1,14 +1,21 @@
 package com.br.estudo.crudpessoa.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor @AllArgsConstructor 
 @Entity
 @Table(name = "pessoa")
 public class Pessoa {
@@ -30,4 +37,10 @@ public class Pessoa {
     @NotNull
     private String cpf;
 
+    public Pessoa(String nome, Date dataNascimento, String rg, String cpf) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.rg = rg;
+        this.cpf = cpf;
+    }
 }
